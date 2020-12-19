@@ -9,14 +9,25 @@ $searchsite =  ['https://www.ecosia.org/search?q=',
  		'https://search.lilo.org/?q=',
  		'https://www.givero.com/search?q='];
 
+$q = $_GET['q'];
+if (isset($q)) {
+    goSearch($q, $searchsite);
+}
+
 ?>
 
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8">
+    <meta property="og:title" content="Search for Planet">
+	<meta property="og:description" content="Redirect searches to Ethical Search Engines">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://www.searchforplanet.org">
+    <meta property="og:image" content="favicon.png">
     <title>Search for planet</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.png">
   </head>
   <body>
 	<section>
@@ -34,6 +45,11 @@ $searchsite =  ['https://www.ecosia.org/search?q=',
       <div class="main">
         <form name="searchForm" class="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 		<img src="LOGO.png">
+		<div class="description">
+		  <p>
+		    Redirect searches to Ethical Search Engines
+		  </p>
+		</div>
 		<div class="searchBox">
 		  <input type="text" name="search_query" class="search">
 		  <div class="icons">
@@ -51,6 +67,7 @@ $searchsite =  ['https://www.ecosia.org/search?q=',
         <div class="row row2">
           <ul>
             <li><a href="https://gitea.it/selectallfromdual/Searchforplanet.org" target="_blank">Gitea</a></li>
+            <li><a href="https://gitea.it/selectallfromdual/Searchforplanet.org/issues" target="_blank">Issues</a></li>
             <li><a href="https://liberapay.com/searchforplanet" target="_blank">Liberapay</a></li>
             <li><a href="https://www.selectallfromdual.com" target="_blank">Powered by Dummy-X</a></li>
             <li><a href="https://mastodon.uno/@selectallfromdual" target="_blank">Mastodon</a></li>
@@ -65,12 +82,16 @@ $searchsite =  ['https://www.ecosia.org/search?q=',
 <?php
 if(isset($_POST['submit'])) {
 	$q = $_POST['search_query'];
-	$q = str_replace (' ', '+', $q);
+	goSearch($q, $searchsite);
+}
+
+function goSearch($q, $searchsite) {
+
+    $q = urlencode($q);
 	
 	$idx = rand(1,sizeof($searchsite))-1;
 	$query = $searchsite[$idx].$q.'&src=searchforplanet.org';
 
-	
 	header('Location: '.$query);
 }
 ?>
