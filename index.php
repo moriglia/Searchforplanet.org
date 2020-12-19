@@ -50,8 +50,8 @@ $searchsite =  ['https://www.ecosia.org/search?q=',
       <div class="footer">
         <div class="row row2">
           <ul>
-            <!--<li><a href="#">Gitea</a></li>-->
-            <!--<li><a href="#">Liberapay</a></li>-->
+            <li><a href="https://gitea.it/selectallfromdual/Searchforplanet.org" target="_blank">Gitea</a></li>
+            <li><a href="https://liberapay.com/searchforplanet" target="_blank">Liberapay</a></li>
             <li><a href="https://www.selectallfromdual.com" target="_blank">Powered by Dummy-X</a></li>
             <li><a href="https://mastodon.uno/@selectallfromdual" target="_blank">Mastodon</a></li>
           </ul>
