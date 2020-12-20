@@ -6,8 +6,11 @@ if (strpos($_SERVER['REQUEST_URI'], 'index.php') !== false) {
 }
 
 $searchsite =  ['https://www.ecosia.org/search?q=',
- 		'https://search.lilo.org/?q=',
- 		'https://www.givero.com/search?q='];
+                'https://search.lilo.org/?q=',
+                'https://www.givero.com/search?q=',
+                'https://elliotforwater.com/Search?q=',
+                'https://search.givewater.com/serp?q='
+                ];
 
 $q = $_GET['q'];
 if (isset($q)) {
@@ -25,7 +28,7 @@ if (isset($q)) {
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="https://www.searchforplanet.org">
     <meta property="og:image" content="favicon.png">
-    <title>Search for planet</title>
+    <title>Search for Planet</title>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="favicon.png">
   </head>
@@ -70,7 +73,7 @@ if (isset($q)) {
             <li><a href="https://gitea.it/selectallfromdual/Searchforplanet.org/issues" target="_blank">Issues</a></li>
             <li><a href="https://liberapay.com/searchforplanet" target="_blank">Liberapay</a></li>
             <li><a href="https://www.selectallfromdual.com" target="_blank">Powered by Dummy-X</a></li>
-            <li><a href="https://mastodon.uno/@selectallfromdual" target="_blank">Mastodon</a></li>
+            <li><a href="https://mastodon.uno" target="_blank">in collaboration with Mastodon Italia</a></li>
           </ul>
         </div>
       </div>
@@ -90,7 +93,7 @@ function goSearch($q, $searchsite) {
     $q = urlencode($q);
 	
 	$idx = rand(1,sizeof($searchsite))-1;
-	$query = $searchsite[$idx].$q.'&src=searchforplanet.org';
+	$query = $searchsite[$idx].$q;
 
 	header('Location: '.$query);
 }
