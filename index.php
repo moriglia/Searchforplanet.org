@@ -20,71 +20,76 @@ if (isset($q)) {
 ?>
 
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <meta property="og:title" content="Search for Planet">
+<head>
+	<!-- 
+		Template cloned by Searx: https://github.com/searx/searx
+	-->
+    <meta charset="UTF-8" />
+	<meta property="og:title" content="Search for Planet">
 	<meta property="og:description" content="Redirect searches to Ethical Search Engines">
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="https://www.searchforplanet.org">
-    <meta property="og:image" content="favicon.png">
-    <title>Search for Planet</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="favicon.png">
-  </head>
-  <body>
-	<section>
-    	<header>
-      		<ul>
-            	<!--<li><a href="#">What is Ethical research</a></li>
-              	<li><a href="#">Privacy Policy</a></li>
-              	<li><a href="#">News</a></li>-->
-              	<li>No Cookie</li>
-              	<li>No Profiling</li>
-              	<li>No Script</li>
-              	<li>No Track</li>
-          	</ul>
-      	</header>
-      <div class="main">
-        <form name="searchForm" class="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-		<img src="LOGO.png">
-		<div class="description">
-		  <p>
-		    Redirect searches to Ethical Search Engines
-		  </p>
-		</div>
-		<div class="searchBox">
-		  <input type="text" name="search_query" class="search">
-		  <div class="icons">
-		    <div>
-		      <img src="search-icon.png">
-		    </div> 
-		  </div>
-		</div>
-		<div class="buttons">
-			<button type="submit" name="submit">Search</button>
-		</div>
-        </form>
-      </div>
-      <div class="footer">
-        <div class="row row2">
-          <ul>
-            <li><a href="https://gitea.it/selectallfromdual/Searchforplanet.org" target="_blank">Gitea</a></li>
-            <li><a href="https://gitea.it/selectallfromdual/Searchforplanet.org/issues" target="_blank">Issues</a></li>
-            <li><a href="https://liberapay.com/searchforplanet" target="_blank">Liberapay</a></li>
-            <li><a href="https://www.selectallfromdual.com" target="_blank">Powered by Dummy-X</a></li>
-            <li><a href="https://mastodon.uno" target="_blank">in collaboration with Mastodon Italia</a></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-  </body>
-</html>
+    <meta property="og:image" content="icon-big.png">
+	
+    <meta name="description" content="Redirect searches to Ethical Search Engines" />
+    <meta name="keywords" content="search, search engine, ethical search, ethical" />
+    <meta name="referrer" content="no-referrer">
+    <meta name="viewport" content="width=device-width, initial-scale=1 , maximum-scale=1.0, user-scalable=1" />
 
+    <title>SearchforPlanet.org</title>
+    <link rel="stylesheet" href="bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="logicodev.min.css" type="text/css" />
+    <link rel="stylesheet" href="leaflet.min.css" type="text/css" />
+
+    <link rel="shortcut icon" href="favicon.ico" />
+
+</head>
+<body>
+<div class="searx-navbar">
+	<span class="instance pull-left"><a href="https://gitea.it/selectallfromdual/Searchforplanet.org/wiki/What-is" target="_blank">What is</a></span>
+	<span class="pull-right"><a href="https://gitea.it/selectallfromdual/Searchforplanet.org/wiki/Privacy-policy" target="_blank">Privacy policy</a><a href="https://gitea.it/selectallfromdual/Searchforplanet.org/wiki/News" target="_blank">News</a></span>
+</div>
+<div class="container">
+<div class="container-fluid">
+    <div class="row">
+        <div class="text-center col-sm-12 col-md-12">
+                <h1 class="text-hide center-block" id="main-logo">
+                    <img class="center-block img-responsive" src="LOGO.png" alt="searx logo" />
+                    SearchforPlanet.org
+                </h1>
+				<p class="text-muted">Redirect searches to Ethical Search Engines</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="text-center col-sm-12 col-md-12">
+
+<form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>" id="search_form" role="search">
+    <div class="input-group col-md-8 col-md-offset-2">
+        <input type="search" name="q" class="form-control input-lg autofocus" id="q" placeholder="Search here..." aria-label="Search here..." autocomplete="off" value="" accesskey="s">
+        <span class="input-group-btn">
+            <button type="submit" name="submit" class="btn btn-default input-lg" aria-label="Cerca"><span class="hide_if_nojs"><img src="search-icon.png"></span></button>
+        </span>
+    </div>
+
+</form>       </div>
+    </div>
+</div>
+
+    </div>
+    <div class="footer">
+        <div class="container">
+            <p class="text-muted">
+                <small>By using this service you accept the <a href="https://gitea.it/selectallfromdual/Searchforplanet.org/wiki/Terms" target="_blank">Terms</a><br>
+				<a href="https://gitea.it/selectallfromdual/Searchforplanet.org" target="_blank">source code</a> | <a href="https://gitea.it/selectallfromdual/Searchforplanet.org/issues" target="_blank">issue tracker</a> | <a href="https://liberapay.com/searchforplanet" target="_blank">support us</a> | <a href="https://gitea.it/selectallfromdual/Searchforplanet.org/wiki/Welcome-page" target="_blank">wiki</a></small>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
 
 <?php
 if(isset($_POST['submit'])) {
-	$q = $_POST['search_query'];
+	$q = $_POST['q'];
 	goSearch($q, $searchsite);
 }
 
@@ -98,5 +103,3 @@ function goSearch($q, $searchsite) {
 	header('Location: '.$query);
 }
 ?>
-
-
