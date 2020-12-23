@@ -17,6 +17,16 @@ if (isset($q)) {
     goSearch($q, $searchsite);
 }
 
+if (isset($_GET['theme']) && $_GET['theme'] == 'dark') {
+    $csstheme = "logicodev-dark.min.css";
+    $labeltheme = "Light";
+    $linktheme = "/";
+} else {
+    $csstheme = "logicodev.min.css";
+    $labeltheme = "Dark";
+    $linktheme = "/?theme=dark";
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +48,7 @@ if (isset($q)) {
 
     <title>SearchforPlanet.org</title>
     <link rel="stylesheet" href="bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="logicodev.min.css" type="text/css" />
+    <link rel="stylesheet" href="<?=$csstheme;?>" type="text/css" />
     <link rel="stylesheet" href="leaflet.min.css" type="text/css" />
 
     <link rel="shortcut icon" href="favicon.ico" />
@@ -47,7 +57,7 @@ if (isset($q)) {
 <body>
 <div class="searx-navbar">
 	<span class="instance pull-left"><a href="https://gitea.it/selectallfromdual/Searchforplanet.org/wiki/What-is" target="_blank">What is</a></span>
-	<span class="pull-right"><a href="https://gitea.it/selectallfromdual/Searchforplanet.org/wiki/Privacy-policy" target="_blank">Privacy policy</a><a href="https://gitea.it/selectallfromdual/Searchforplanet.org/wiki/News" target="_blank">News</a></span>
+	<span class="pull-right"><a href="https://gitea.it/selectallfromdual/Searchforplanet.org/wiki/Privacy-policy" target="_blank">Privacy policy</a><a href="https://gitea.it/selectallfromdual/Searchforplanet.org/wiki/News" target="_blank">News</a><a href="<?=$linktheme;?>"><?=$labeltheme;?></a></span>
 </div>
 <div class="container">
 <div class="container-fluid">
