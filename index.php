@@ -53,6 +53,8 @@ if (isset($_GET['theme']) && $_GET['theme'] == 'dark') {
 
     <link rel="shortcut icon" href="favicon.ico" />
 
+    <link rel="search" href="opensearch.xml" type="application/opensearchdescription+xml" title="Search For Planet" />
+
 </head>
 <body>
 <div class="searx-navbar">
