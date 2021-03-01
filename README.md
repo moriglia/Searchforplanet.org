@@ -6,6 +6,9 @@ Startpage is independent and is in no way connected to either the search engines
 # Contributi
 * [@moriglia@github.com](https://github.com/moriglia/Searchforplanet.org/commit/41a5d9bbf2b157b85e4af648c377ca2fac11e37e): Add OpenSearch descriptor - opensearch.xml is the search engine descriptor and it will be used by browsers to register SearchForPlanet.org as a search engine.
 
+# LICENSE
+[GNU AFFERO GENERAL PUBLIC LICENSE](https://gitea.it/selectallfromdual/Searchforplanet.org/src/branch/master/LICENSE)
+
 # Donations
 You can support us on https://liberapay.com/searchforplanet
 
