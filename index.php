@@ -9,7 +9,8 @@ $searchsite =  ['https://www.ecosia.org/search?q=',
                 'https://search.lilo.org/?q=',
                 'https://www.givero.com/search?q=',
                 'https://elliotforwater.com/Search?q=',
-                'https://search.givewater.com/serp?q='
+                'https://search.givewater.com/serp?q=',
+                'https://www.ekoru.org/?q='
                 ];
 
 $q = $_GET['q'];
@@ -39,7 +40,7 @@ if (isset($_GET['theme']) && $_GET['theme'] == 'dark') {
 	<meta property="og:description" content="Redirect searches to Ethical Search Engines">
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="https://www.searchforplanet.org">
-    <meta property="og:image" content="icon-big.png">
+    <meta property="og:image" content="icon-big-128.png">
 	
     <meta name="description" content="Redirect searches to Ethical Search Engines" />
     <meta name="keywords" content="search, search engine, ethical search, ethical" />
@@ -53,18 +54,20 @@ if (isset($_GET['theme']) && $_GET['theme'] == 'dark') {
 
     <link rel="shortcut icon" href="favicon.ico" />
 
+    <link rel="search" href="opensearch.xml" type="application/opensearchdescription+xml" title="Search For Planet" />
+
 </head>
 <body>
 <div class="searx-navbar">
 	<span class="instance pull-left"><a href="https://gitea.it/selectallfromdual/Searchforplanet.org/wiki/What-is" target="_blank">What is</a></span>
-	<span class="pull-right"><a href="https://gitea.it/selectallfromdual/Searchforplanet.org/wiki/Privacy-policy" target="_blank">Privacy policy</a><a href="https://gitea.it/selectallfromdual/Searchforplanet.org/wiki/News" target="_blank">News</a><a href="<?=$linktheme;?>"><?=$labeltheme;?></a></span>
+	<span class="pull-right"><a href="<?=$linktheme;?>"><?=$labeltheme;?></a><a href="https://gitea.it/selectallfromdual/Searchforplanet.org/wiki/Privacy-policy" target="_blank">Privacy</a><a href="https://gitea.it/selectallfromdual/Searchforplanet.org/wiki/News" target="_blank">News</a></span>
 </div>
 <div class="container">
 <div class="container-fluid">
     <div class="row">
         <div class="text-center col-sm-12 col-md-12">
                 <h1 class="text-hide center-block" id="main-logo">
-                    <img class="center-block img-responsive" src="LOGO.png" alt="searx logo" />
+                    <img class="center-block img-responsive" src="LOGO.webp" alt="SearchforPlanet.org"/>
                     SearchforPlanet.org
                 </h1>
 				<p class="text-muted">Redirect searches to Ethical Search Engines</p>
